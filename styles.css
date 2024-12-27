@@ -1,161 +1,88 @@
-/* General Styles */
+/* Basic Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #E9E6E2; /* Light gray background */
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E9E6E2;
+  color: #333;
+  text-align: center;
 }
 
 h1, h2 {
-    color: #4A7729; /* Green */
+  color: #4A7729;
 }
 
-/* Landing Page */
 #landingPage {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #fff; /* White background for landing page */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#landingPage h1 {
-    font-size: 2.5em;
-    color: #4A7729;
-    margin-bottom: 20px;
+button {
+  background-color: #BE4D00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
-#landingPage p {
-    font-size: 1.2em;
-    color: #4A7729;
-    margin-bottom: 30px;
+button:hover {
+  background-color: #4A7729;
 }
 
-button#startButton {
-    background-color: #BE4D00; /* Orange */
-    color: white;
-    font-size: 20px;
-    padding: 15px 30px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 200px;
-    margin-top: 20px;
+button:disabled {
+  background-color: #ddd;
 }
 
-button#startButton:hover {
-    background-color: #9e3e00;
+.hidden {
+  display: none;
 }
 
-/* Question Pages */
 #questionPage {
-    padding: 20px;
-    margin-top: 50px;
-    background-color: #fff;
+  display: block;
+  padding: 20px;
 }
 
-#questionPage h2 {
-    font-size: 2em;
-    color: #4A7729;
-    margin-bottom: 20px;
+#answerButtons button {
+  margin: 10px;
+  background-color: #E9E6E2;
+  color: #4A7729;
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 60%;
 }
 
-#answersContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#answerButtons button.selected {
+  background-color: #BE4D00;
 }
 
-button.answer-btn {
-    background-color: #C4C4C4;
-    margin: 10px;
-    width: 80%;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 20px;
-    transition: background-color 0.3s;
-    cursor: pointer;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 10%;
 }
 
-button.answer-btn.selected {
-    background-color: #BE4D00;
-    color: white;
-}
-
-button.answer-btn:hover {
-    background-color: #9e3e00;
-}
-
-/* Next and Back Buttons */
-.navigation-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-button#nextButton, button#backButton {
-    width: 120px;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 20px;
-}
-
-button#nextButton {
-    background-color: #4A7729; /* Green */
-    color: white;
-}
-
-button#nextButton:hover {
-    background-color: #3e5b1f;
-}
-
-button#backButton {
-    background-color: #C4C4C4; /* Grey */
-    color: white;
-}
-
-button#backButton:hover {
-    background-color: #9e9e9e;
-}
-
-button#nextButton:disabled {
-    background-color: #E9E6E2; /* Disabled button */
-    cursor: not-allowed;
-}
-
-/* Results Page */
 #resultsPage {
-    padding: 20px;
-    margin-top: 50px;
-    background-color: #fff;
+  padding: 20px;
+  margin-top: 50px;
 }
 
-#resultsPage h2 {
-    font-size: 2.5em;
-    color: #4A7729;
-    margin-bottom: 20px;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-#resultsPage p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-#resultsPage ul {
-    list-style-type: disc; /* Display bullet points */
-    padding-left: 20px; /* Indent list items */
-    text-align: left; /* Align text to the left */
-    font-size: 1.1em; /* Slightly larger text for readability */
-    color: #333; /* Darker text for clarity */
+ul li {
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 #restartButton {
-    background-color: #4A7729; /* Green */
-    color: white;
-    border-radius: 20px;
-    padding: 15px 30px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
+  margin-top: 20px;
 }
