@@ -1,88 +1,93 @@
+/* General styling */
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #E9E6E2;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #4A7729;
+    font-family: 'Arial', sans-serif; /* Matches the simple sans-serif style */
+    background-color: #E9E6E2; /* Light gray background */
+    color: #333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
-h1, h2 {
-  color: #4A7729;
+#appContainer {
+    background-color: #FFFFFF; /* White background for the form container */
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+    width: 100%;
+    max-width: 500px; /* Keeps the form container size reasonable */
+    text-align: center;
 }
 
+/* Title styling */
+h1 {
+    color: #4A7729; /* Dark green for the title */
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Form label styling */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
+/* Dropdown select styling */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #D1D1D1; /* Light gray border */
+    border-radius: 4px;
+    margin-bottom: 20px; /* Spacing between fields */
+    background-color: #F9F9F9; /* Light background for dropdown */
+}
+
+select:focus {
+    outline: none;
+    border-color: #BE4D00; /* Orange border when focused */
+}
+
+/* Button styling */
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #BE4D00;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #BE4D00; /* Orange background */
+    color: #FFF; /* White text */
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #FF7F32;
+    background-color: #9C3B00; /* Slightly darker orange on hover */
 }
 
-button.selected {
-  background-color: #FF7F32;
+/* Result section styling */
+#result {
+    background-color: #FFF;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+#petDescription {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
 }
 
-#landingPage, #questionPage, #resultsPage {
-  display: block;
-  margin: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-#backButton {
-  background-color: #777;
-}
-
-#nextButton {
-  background-color: #4A7729;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#restartButton {
-  background-color: #BE4D00;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-#restartButton:hover {
-  background-color: #FF7F32;
-}
-
-/* Adjust the spacing for the landing page */
-#landingPage h1 {
-  margin-bottom: 10px; /* Reduces space between title and subtitle */
-}
-
-#landingPage p {
-  margin-top: 0; /* Removes extra space above the subtitle */
-  margin-bottom: 20px; /* Adds a little spacing below the subtitle */
+/* Spacing between form and result */
+#quizForm {
+    margin-bottom: 30px;
 }
