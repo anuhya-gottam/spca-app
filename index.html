@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Match</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Font: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Match</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS -->
 </head>
 <body>
-
-<!-- Landing Page (Welcome Screen) -->
-<div id="landingPage">
+  <!-- Landing Page -->
+  <div id="landingPage">
     <h1>Welcome to Pet Match</h1>
-    <p>Find your perfect pet by answering a few simple questions!</p>
-    <button id="startButton" class="green-btn">Start</button>
-</div>
+    <p>Find your perfect pet by answering a few questions.</p>
+    <button id="startButton">Start</button>
+  </div>
 
-<!-- Question Pages (hidden initially) -->
-<div id="questionPage" class="hidden">
+  <!-- Question Pages -->
+  <div id="questionPage" class="hidden">
     <div id="questionContainer">
-        <h2 id="questionTitle"></h2>
-        <div id="answersContainer"></div>
+      <h2 id="questionText">Question will appear here</h2>
+      <div id="answerButtons"></div>
     </div>
-    <div class="navigation-buttons">
-        <button id="backButton" class="grey-btn hidden">Back</button>
-        <button id="nextButton" class="green-btn hidden">Next</button>
+    <div class="navigation">
+      <button id="backButton" class="hidden">Back</button>
+      <button id="nextButton">Next</button>
     </div>
-</div>
+  </div>
 
-<!-- Results Page (hidden initially) -->
-<div id="resultsPage" class="hidden">
-    <h2>Your Ideal Pet:</h2>
-    <p id="petDescription"></p>
-    <button id="restartButton" class="green-btn">Restart</button>
-</div>
+  <!-- Results Page -->
+  <div id="resultsPage" class="hidden">
+    <h2>Your Perfect Pet</h2>
+    <ul id="petDescription"></ul>
+    <button id="restartButton">Restart</button>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script> <!-- Linking to the JavaScript file -->
 </body>
 </html>
