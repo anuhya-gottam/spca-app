@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #E9E6E2;
+    background-color: #E9E6E2; /* Light gray background */
     color: #333;
     text-align: center;
     margin: 0;
@@ -9,73 +9,73 @@ body {
 }
 
 h1, h2 {
-    color: #4A7729;
+    color: #4A7729; /* Green */
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px; /* Set corner rounding to 20px */
-}
-
-.green-btn {
-    background-color: #BE4D00;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-.green-btn:hover {
-    background-color: #9e3e00;
-}
-
-.grey-btn {
-    background-color: #C4C4C4;
-    color: white;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-.hidden {
-    display: none;
-}
-
-/* Landing page */
+/* Landing Page */
 #landingPage {
-    padding: 20px;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff; /* White background for landing page */
 }
 
 #landingPage h1 {
     font-size: 2.5em;
+    color: #4A7729;
+    margin-bottom: 20px;
 }
 
 #landingPage p {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    color: #4A7729;
+    margin-bottom: 30px;
 }
 
-/* Question Page */
+button#startButton {
+    background-color: #BE4D00; /* Orange */
+    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    margin-top: 20px;
+}
+
+button#startButton:hover {
+    background-color: #9e3e00;
+}
+
+/* Question Pages */
 #questionPage {
     padding: 20px;
     margin-top: 50px;
+    background-color: #fff;
 }
 
-#questionContainer h2 {
-    font-size: 1.8em;
+#questionPage h2 {
+    font-size: 2em;
+    color: #4A7729;
     margin-bottom: 20px;
+}
+
+#answersContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button.answer-btn {
     background-color: #C4C4C4;
     margin: 10px;
-    width: 200px;
+    width: 80%;
     font-size: 16px;
     padding: 10px;
-    border-radius: 20px; /* Set corner rounding to 20px */
+    border-radius: 20px;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 button.answer-btn.selected {
@@ -83,25 +83,58 @@ button.answer-btn.selected {
     color: white;
 }
 
+button.answer-btn:hover {
+    background-color: #9e3e00;
+}
+
+/* Next and Back Buttons */
 .navigation-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-.navigation-buttons button {
+button#nextButton, button#backButton {
     width: 120px;
     font-size: 16px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+button#nextButton {
+    background-color: #4A7729; /* Green */
+    color: white;
+}
+
+button#nextButton:hover {
+    background-color: #3e5b1f;
+}
+
+button#backButton {
+    background-color: #C4C4C4; /* Grey */
+    color: white;
+}
+
+button#backButton:hover {
+    background-color: #9e9e9e;
+}
+
+button#nextButton:disabled {
+    background-color: #E9E6E2; /* Disabled button */
+    cursor: not-allowed;
 }
 
 /* Results Page */
 #resultsPage {
     padding: 20px;
     margin-top: 50px;
+    background-color: #fff;
 }
 
 #resultsPage h2 {
-    font-size: 2em;
+    font-size: 2.5em;
+    color: #4A7729;
+    margin-bottom: 20px;
 }
 
 #resultsPage p {
@@ -110,6 +143,11 @@ button.answer-btn.selected {
 }
 
 #restartButton {
-    background-color: #4A7729;
-    border-radius: 20px; /* Set corner rounding to 20px */
+    background-color: #4A7729; /* Green */
+    color: white;
+    border-radius: 20px;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
 }
