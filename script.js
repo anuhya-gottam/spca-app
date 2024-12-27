@@ -1,8 +1,8 @@
 // Function to generate the pet match based on the user's answers
 function getPetMatch(event) {
-    event.preventDefault(); // Prevent the form from submitting and refreshing the page
+    event.preventDefault(); // Prevent form submission from reloading the page
     
-    // Get values from the form
+    // Get the form inputs
     const houseHold = document.getElementById('houseHold').value;
     const otherAnimals = document.getElementById('otherAnimals').value;
     const dogBefore = document.getElementById('dogBefore').value;
@@ -11,81 +11,93 @@ function getPetMatch(event) {
     const lifeStyle = document.getElementById('lifeStyle').value;
     const hoursAlone = document.getElementById('hoursAlone').value;
     
-    // Start building the pet description
+    // Build the description (this is where you add your pet match logic)
     let petDescription = 'Based on your responses, we recommend a dog that is: \n\n';
     
-    // Question 1: Household with kids
+    // Analyze each response and add corresponding recommendations:
+    
+    // Household (Kids)
     if (houseHold === 'nokids') {
-        petDescription += '• Ideal for a calm and quiet home without kids, preferring a peaceful environment. \n';
+        petDescription += '• Ideal for a calm and quiet home without kids. \n';
     } else if (houseHold === 'baby') {
-        petDescription += '• Great with babies and toddlers, gentle and patient with young children. \n';
-    } else if (houseHold === 'early' || houseHold === 'late' || houseHold === 'middle' || houseHold === 'older') {
-        petDescription += '• Suitable for a home with children of various ages, playful and social with kids. \n';
+        petDescription += '• Best suited for a home with babies or toddlers, requires patience. \n';
+    } else if (houseHold === 'early') {
+        petDescription += '• A dog that can handle younger children in early elementary grades. \n';
+    } else if (houseHold === 'late') {
+        petDescription += '• A dog that does well with kids in late elementary grades. \n';
+    } else if (houseHold === 'middle') {
+        petDescription += '• A dog that loves to interact with middle school-aged kids. \n';
+    } else if (houseHold === 'older') {
+        petDescription += '• A dog that does well in homes with high school-aged children or older. \n';
     }
-
-    // Question 2: Other animals in the home
+    
+    // Other animals in the home
     if (otherAnimals === 'none') {
-        petDescription += '• Perfect for a home with no other pets, where it can receive all your attention. \n';
+        petDescription += '• A dog that would thrive as the only pet in the home. \n';
     } else if (otherAnimals === 'dog') {
-        petDescription += '• Compatible with other dogs, but introductions should be done gradually. \n';
+        petDescription += '• A dog that gets along with other dogs and loves a social household. \n';
     } else if (otherAnimals === 'cat') {
-        petDescription += '• Works well with cats, but may require some time to adjust. \n';
+        petDescription += '• A dog that is cat-friendly and can coexist peacefully with feline companions. \n';
     } else if (otherAnimals === 'other') {
-        petDescription += '• Can coexist with small animals like rabbits or guinea pigs. \n';
-
-    // Question 3: Have you had a dog before?
-    if (dogBefore === 'no') {
-        petDescription += '• Great for first-time dog owners, easy to train and friendly. \n';
-    } else if (dogBefore === 'small') {
-        petDescription += '• Ideal for those with experience in caring for small dogs, handling their unique needs. \n';
-    } else if (dogBefore === 'medium') {
-        petDescription += '• Suitable for those experienced with medium-sized dogs, offering a balance of energy and manageability. \n';
-    } else if (dogBefore === 'large') {
-        petDescription += '• Best for experienced owners who can handle larger dogs with more energy and training needs. \n';
-
-    // Question 4: Dog size preference
-    if (sizeDog === 'twenty') {
-        petDescription += '• Small-sized dogs (up to 20 pounds), perfect for apartments and easier to manage. \n';
-    } else if (sizeDog === 'fourty') {
-        petDescription += '• Medium-sized dogs (20-40 pounds), ideal for homes with yards or larger living spaces. \n';
-    } else if (sizeDog === 'lots') {
-        petDescription += '• Large-sized dogs (over 40 pounds), great for families with space for a more active dog. \n';
-
-    // Question 5: Age of dog preference
-    if (ageDog === 'puppy') {
-        petDescription += '• A playful puppy, ideal for those with time to invest in training and socialization. \n';
-    } else if (ageDog === 'young') {
-        petDescription += '• A young adult dog, social and playful but already partially trained. \n';
-    } else if (ageDog === 'adult') {
-        petDescription += '• An adult dog, calm and well-adjusted, requiring less training but still active. \n';
-    } else if (ageDog === 'senior') {
-        petDescription += '• A senior dog, relaxed and laid-back, perfect for someone looking for a more low-key companion. \n';
-
-    // Question 6: Lifestyle
-    if (lifeStyle === 'very') {
-        petDescription += '• A high-energy dog, perfect for outdoor activities like hiking or running, but avoid breeds with breathing or heart issues. \n';
-    } else if (lifeStyle === 'somewhat') {
-        petDescription += '• A moderately active dog, suitable for regular walks and some playtime, without requiring constant exercise. \n';
-    } else if (lifeStyle === 'less') {
-        petDescription += '• A more relaxed dog, content with shorter walks and lounging at home. \n';
-
-    // Question 7: Hours alone per day
-    if (hoursAlone === 'two') {
-        petDescription += '• A dog that can handle being alone for up to 2 hours, ideal for work-from-home owners. \n';
-    } else if (hoursAlone === 'eight') {
-        petDescription += '• A dog that can handle being alone for 2-8 hours, but might need midday breaks or a dog walker. \n';
-    } else if (hoursAlone === 'moreeight') {
-        petDescription += '• A dog that is independent and comfortable being alone for over 8 hours, but may require less needy breeds. \n';
-
+        petDescription += '• A dog that is comfortable around other small animals (rabbits, guinea pigs, etc.). \n';
     }
-
-    // Display the result section
+    
+    // Experience with dogs
+    if (dogBefore === 'no') {
+        petDescription += '• A beginner-friendly dog, easy to train and low maintenance. \n';
+    } else if (dogBefore === 'small') {
+        petDescription += '• A small dog with experience in handling, looking for a similar sized companion. \n';
+    } else if (dogBefore === 'medium') {
+        petDescription += '• A medium-sized dog with prior experience, looking for an active medium dog. \n';
+    } else if (dogBefore === 'large') {
+        petDescription += '• A large dog experienced adopter, looking for another big dog. \n';
+    }
+    
+    // Dog size preference
+    if (sizeDog === 'twenty') {
+        petDescription += '• Small-sized dogs, great for apartments or cozy homes. \n';
+    } else if (sizeDog === 'fourty') {
+        petDescription += '• Medium-sized dogs, ideal for families with space and active lifestyles. \n';
+    } else if (sizeDog === 'lots') {
+        petDescription += '• Large-sized dogs, perfect for homes with large yards and lots of room to run. \n';
+    }
+    
+    // Age of dog preference
+    if (ageDog === 'puppy') {
+        petDescription += '• A playful, energetic puppy that will need training and attention. \n';
+    } else if (ageDog === 'young') {
+        petDescription += '• A young adult dog (6 months to 2 years), still energetic but more mature. \n';
+    } else if (ageDog === 'adult') {
+        petDescription += '• An adult dog (2-7 years), settled and typically well-trained. \n';
+    } else if (ageDog === 'senior') {
+        petDescription += '• A senior dog (7+ years), calm and often requiring less exercise. \n';
+    }
+    
+    // Activity level (lifestyle)
+    if (lifeStyle === 'very') {
+        petDescription += '• A high-energy dog that loves long walks, hikes, and plenty of exercise. \n';
+    } else if (lifeStyle === 'somewhat') {
+        petDescription += '• A moderately active dog that enjoys some exercise but also loves lounging. \n';
+    } else if (lifeStyle === 'less') {
+        petDescription += '• A dog with lower energy needs, content with one walk per day and quiet time at home. \n';
+    }
+    
+    // Time alone during the day
+    if (hoursAlone === 'two') {
+        petDescription += '• A dog that loves being around people and can handle short periods alone. \n';
+    } else if (hoursAlone === 'eight') {
+        petDescription += '• A dog that can tolerate being alone for a few hours during the day but needs mental stimulation. \n';
+    } else if (hoursAlone === 'moreeight') {
+        petDescription += '• A more independent dog that can be left alone for extended hours without much issue. \n';
+    }
+    
+    // Display result
     const resultSection = document.getElementById('result');
     const petDescriptionElement = document.getElementById('petDescription');
     
-    petDescriptionElement.textContent = petDescription;  // Add the description text
+    petDescriptionElement.textContent = petDescription;  // Show the description
     resultSection.style.display = 'block';  // Show the result section
 }
 
-// Attach the function to the form's submit event
+// Attach the event listener to the form
 document.getElementById('quizForm').addEventListener('submit', getPetMatch);
