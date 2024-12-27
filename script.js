@@ -122,28 +122,27 @@ function showResults() {
 function generatePetDescription() {
   let description = "<ul>";
 
-  if (answers[5] === 0) {
-    description += "<li>Highly energetic, enjoys outdoor activities like hiking or running, and is a good fit for active lifestyles.</li>";
-  } else if (answers[5] === 1) {
-    description += "<li>Moderately active and enjoys occasional walks and playtime.</li>";
-  } else {
-    description += "<li>Less active and prefers a relaxed home environment with fewer physical activities.</li>";
+  // Example logic based on answers
+  if (answers[5] === 0) { // Very Active lifestyle
+    description += "<li>Needs a highly energetic dog, no dogs with heart or breathing issues.</li>";
+  } else if (answers[5] === 1) { // Somewhat Active lifestyle
+    description += "<li>A moderate-energy dog would be ideal, with some tolerance for quiet moments.</li>";
+  } else { // Less Active lifestyle
+    description += "<li>Prefer a more relaxed dog that enjoys lounging but still needs moderate walks.</li>";
   }
 
-  if (answers[0] === 1 || answers[0] === 2) {
-    description += "<li>Can handle interaction with children of various ages.</li>";
-  } else {
-    description += "<li>Best suited for homes with older kids or no children.</li>";
+  // Further analysis based on combination of answers
+  if (answers[3] === 2) { // Large size dog
+    description += "<li>A large breed dog would be appropriate for your living space and activity level.</li>";
   }
 
-  if (answers[1] === 1) {
-    description += "<li>Good with other dogs and pets.</li>";
+  if (answers[1] === 0) { // No other pets
+    description += "<li>Prefers a home without other pets for a less stressful environment.</li>";
   } else {
-    description += "<li>Prefers a home without other pets.</li>";
+    description += "<li>Will adapt well to a home with other dogs or pets, especially if properly introduced.</li>";
   }
 
   description += "</ul>";
-
   return description;
 }
 
