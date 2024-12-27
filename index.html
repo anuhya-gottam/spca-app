@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Match</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS -->
+</head>
+<body>
+
+  <div id="appContainer">
+    <h1>Find Your Perfect Pet</h1>
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <label for="petType">What type of pet are you interested in?</label>
+      <select id="petType" name="petType">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="either">Either</option>
+      </select><br>
+
+      <!-- Question 2 -->
+      <label for="timeAvailability">How much time do you have for pet care?</label>
+      <select id="timeAvailability" name="timeAvailability">
+        <option value="lots">Lots of time</option>
+        <option value="some">Some time</option>
+        <option value="minimal">Minimal time</option>
+      </select><br>
+
+      <!-- Question 3 -->
+      <label for="children">Do you have children at home?</label>
+      <select id="children" name="children">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+
+      <!-- Question 4 -->
+      <label for="activityLevel">What is your activity level?</label>
+      <select id="activityLevel" name="activityLevel">
+        <option value="active">Very active</option>
+        <option value="moderate">Moderate</option>
+        <option value="low">Low activity</option>
+      </select><br>
+
+      <!-- Submit button -->
+      <button type="submit">Get Your Pet Match</button>
+    </form>
+
+    <!-- Result section (hidden initially) -->
+    <div id="result" style="display:none;">
+      <h3>Your Ideal Pet:</h3>
+      <p id="petDescription"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script> <!-- Linking to the JavaScript file -->
+</body>
+</html>
