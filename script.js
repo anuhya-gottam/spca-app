@@ -8,6 +8,9 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
     const dogBefore = document.getElementById('dogBefore').value;
     const sizeDog = document.getElementById('sizeDog').value;
     const ageDog = document.getElementById('ageDog').value;
+    const lifeStyle = document.getElementById('lifeStyle').value;
+    const hoursAlone = document.getElementById('hoursAlone').value;
+    const shedDog = document.getElementById('shedDog').value;
   
     // Generate a pet description based on the answers
     let description = '';
