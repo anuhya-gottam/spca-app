@@ -1,89 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Match</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Match</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Font: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div id="appContainer">
-    <h1>Find Your Perfect Pet</h1>
-    <form id="quizForm">
-      <!-- Question 1 -->
-      <label for="houseHold">Are there any kids in the home?</label>
-      <select id="houseHold" name="houseHold">
-        <option value="nokids">No kids</option>
-        <option value="baby">Baby, toddler, and older</option>
-        <option value="early">Early elementary and older</option>
-        <option value="late">Late elementary and older</option>
-        <option value="middle">Middle school and older</option>
-        <option value="older">High school and older</option>
-      </select><br>
+<!-- Landing Page (Welcome Screen) -->
+<div id="landingPage">
+    <h1>Welcome to Pet Match</h1>
+    <p>Find your perfect pet by answering a few simple questions!</p>
+    <button id="startButton" class="green-btn">Start</button>
+</div>
 
-      <!-- Question 2 -->
-      <label for="otherAnimals">Are there any other animals in the home?</label>
-      <select id="otherAnimals" name="otherAnimals">
-        <option value="none">None</option>
-        <option value="dog">Dog(s)</option>
-        <option value="cat">Cat(s)</option>
-        <option value="other">Other small animals</option>
-      </select><br>
-
-      <!-- Question 3 -->
-      <label for="dogBefore">Have you had a dog before?</label>
-      <select id="dogBefore" name="dogBefore">
-        <option value="no">No</option>
-        <option value="small">Yes, small dog(s)</option>
-        <option value="medium">Yes, medium dog(s)</option>
-        <option value="large">Yes, large dog(s)</option>
-      </select><br>
-
-      <!-- Question 4 -->
-      <label for="sizeDog">What size dog are you looking for?</label>
-      <select id="sizeDog" name="sizeDog">
-        <option value="twenty">Small (up to 20 pounds)</option>
-        <option value="fourty">Medium (20-40 pounds)</option>
-        <option value="lots">Large (more than 40 pounds)</option>
-      </select><br>
-      
-      <!-- Question 5 -->
-      <label for="ageDog">What age dog are you looking for?</label>
-      <select id="ageDog" name="ageDog">
-        <option value="puppy">Puppy</option>
-        <option value="young">Young adult (6 months to 2 years)</option>
-        <option value="adult">Adult (2 years to 7 years)</option>
-        <option value="senior">Senior (more than 7 years)</option>
-      </select><br>
-      
-      <!-- Question 6 -->
-      <label for="lifeStyle">What kind of lifestyle do you live?</label>
-      <select id="lifeStyle" name="lifeStyle">
-        <option value="very">Very active (regular hiking/running, several walks per day)</option>
-        <option value="somewhat">Somewhat active (occasional hikes/runs, at least one walk per day)</option>
-        <option value="less">Less active (rarely or never hike/run, one walk per day)</option>
-      </select><br>
-
-      <!-- Question 7 -->
-      <label for="hoursAlone">How many hours a day will the animal be alone in the home while the family is at work/school?</label>
-      <select id="hoursAlone" name="hoursAlone">
-        <option value="two">Less than 2 hours (I work/go to school from home)</option>
-        <option value="eight">2-8 hours (I work/go to school in-person and virtual in hybrid format)</option>
-        <option value="moreeight">More than 8 hours (I work/go to school out of the home)</option>
-      </select><br>
-
-      <!-- Submit button -->
-      <button type="submit">Get Your Pet Match</button>
-    </form>
-
-    <!-- Result section (hidden initially) -->
-    <div id="result" style="display:none;">
-      <h3>Your Ideal Pet:</h3>
-      <p id="petDescription"></p>
+<!-- Question Pages (hidden initially) -->
+<div id="questionPage" class="hidden">
+    <div id="questionContainer">
+        <h2 id="questionTitle"></h2>
+        <div id="answersContainer"></div>
     </div>
-  </div>
+    <div class="navigation-buttons">
+        <button id="backButton" class="grey-btn hidden">Back</button>
+        <button id="nextButton" class="green-btn hidden">Next</button>
+    </div>
+</div>
 
-  <script src="script.js"></script> <!-- Linking to the JavaScript file -->
+<!-- Results Page (hidden initially) -->
+<div id="resultsPage" class="hidden">
+    <h2>Your Ideal Pet:</h2>
+    <p id="petDescription"></p>
+    <button id="restartButton" class="green-btn">Restart</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
