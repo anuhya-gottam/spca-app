@@ -34,8 +34,8 @@ const questions = [
 
 // Handle the "Start" button click to show the first question page
 document.getElementById("startButton").addEventListener("click", function() {
-    document.getElementById("landingPage").classList.add("hidden");
-    showQuestionPage();
+    document.getElementById("landingPage").classList.add("hidden"); // Hide landing page
+    showQuestionPage(); // Show first question page
 });
 
 // Show the current question page
@@ -44,8 +44,8 @@ function showQuestionPage() {
     document.getElementById("questionTitle").textContent = question.question;
     
     const answersContainer = document.getElementById("answersContainer");
-    answersContainer.innerHTML = '';
-    
+    answersContainer.innerHTML = ''; // Clear previous answers
+
     question.options.forEach((option, index) => {
         const button = document.createElement("button");
         button.classList.add("answer-btn");
@@ -54,11 +54,10 @@ function showQuestionPage() {
         answersContainer.appendChild(button);
     });
 
-    document.getElementById("questionPage").classList.remove("hidden");
-    document.getElementById("nextButton").classList.remove("hidden");
-    document.getElementById("backButton").classList.remove("hidden");
-
-    document.getElementById("nextButton").disabled = true; // Disable "Next" until an option is selected
+    document.getElementById("questionPage").classList.remove("hidden"); // Show question page
+    document.getElementById("nextButton").classList.remove("hidden"); // Show next button
+    document.getElementById("backButton").classList.remove("hidden"); // Show back button
+    document.getElementById("nextButton").disabled = true; // Disable next until an option is selected
 }
 
 // Handle answer selection
@@ -68,34 +67,57 @@ function selectAnswer(index) {
     
     const selectedButton = answerButtons[index];
     selectedButton.classList.add("selected");
-    answers[currentQuestionIndex] = index;
+    answers[currentQuestionIndex] = index; // Store selected answer
 
-    document.getElementById("nextButton").disabled = false; // Enable "Next" when an option is selected
+    document.getElementById("nextButton").disabled = false; // Enable next button after selection
 }
 
 // Handle "Next" button click to move to the next question
 document.getElementById("nextButton").addEventListener("click", function() {
-    currentQuestionIndex++;
+    currentQuestionIndex++; // Move to the next question
     
     if (currentQuestionIndex < questions.length) {
-        showQuestionPage();
+        showQuestionPage(); // Show the next question page
     } else {
-        showResultsPage();
+        showResultsPage(); // Show results when all questions are answered
     }
 });
 
 // Handle "Back" button click
 document.getElementById("backButton").addEventListener("click", function() {
     if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        showQuestionPage();
+        currentQuestionIndex--; // Move to the previous question
+        showQuestionPage(); // Show the previous question page
     }
 });
 
 // Show results page with the description based on answers
 function showResultsPage() {
-    document.getElementById("questionPage").classList.add("hidden");
-    document.getElementById("resultsPage").classList.remove("hidden");
-    
-    const petDescription = generatePetDescription();
-    document.getElementById("petDescription").textContent
+    document.getElementById("questionPage").classList.add("hidden"); // Hide questions
+    document.getElementById("resultsPage").classList.remove("hidden"); // Show results page
+
+    const petDescription = generatePetDescription(); // Generate pet description based on answers
+    document.getElementById("petDescription").textContent = petDescription; // Display the description
+}
+
+// Example function to generate pet description based on the answers
+function generatePetDescription() {
+    let description = "Based on your answers, we recommend a dog that is ";
+
+    if (answers[5] === 0) {
+        description += "highly energetic, enjoys outdoor activities like hiking or running, and is a good fit for active lifestyles. ";
+    } else if (answers[5] === 1) {
+        description += "moderately active and enjoys occasional walks and playtime. ";
+    } else {
+        description += "less active and would prefer a relaxed home environment with fewer physical activities. ";
+    }
+
+    // Further logic for generating description based on other answers can be added here
+
+    return description;
+}
+
+// Handle Restart button click
+document.getElementById("restartButton").addEventListener("click", function() {
+    location.reload(); // Reload the page to restart the quiz
+});
