@@ -92,32 +92,4 @@ document.getElementById("backButton").addEventListener("click", function() {
 });
 
 // Show results page with the description based on answers
-function showResultsPage() {
-    document.getElementById("questionPage").classList.add("hidden"); // Hide questions
-    document.getElementById("resultsPage").classList.remove("hidden"); // Show results page
-
-    const petDescription = generatePetDescription(); // Generate pet description based on answers
-    document.getElementById("petDescription").textContent = petDescription; // Display the description
-}
-
-// Example function to generate pet description based on the answers
-function generatePetDescription() {
-    let description = "Based on your answers, we recommend a dog that is ";
-
-    if (answers[5] === 0) {
-        description += "highly energetic, enjoys outdoor activities like hiking or running, and is a good fit for active lifestyles. ";
-    } else if (answers[5] === 1) {
-        description += "moderately active and enjoys occasional walks and playtime. ";
-    } else {
-        description += "less active and would prefer a relaxed home environment with fewer physical activities. ";
-    }
-
-    // Further logic for generating description based on other answers can be added here
-
-    return description;
-}
-
-// Handle Restart button click
-document.getElementById("restartButton").addEventListener("click", function() {
-    location.reload(); // Reload the page to restart the quiz
-});
+function show
