@@ -92,4 +92,45 @@ document.getElementById("backButton").addEventListener("click", function() {
 });
 
 // Show results page with the description based on answers
-function show
+function showResultsPage() {
+    document.getElementById("questionPage").classList.add("hidden"); // Hide questions
+    document.getElementById("resultsPage").classList.remove("hidden"); // Show results page
+
+    const petDescription = generatePetDescription(); // Generate pet description based on answers
+    document.getElementById("petDescription").innerHTML = petDescription; // Display the description
+}
+
+// Example function to generate pet description based on the answers
+function generatePetDescription() {
+    let description = "<ul>"; // Start an unordered list
+
+    if (answers[5] === 0) {
+        description += "<li>Highly energetic, enjoys outdoor activities like hiking or running, and is a good fit for active lifestyles.</li>";
+    } else if (answers[5] === 1) {
+        description += "<li>Moderately active and enjoys occasional walks and playtime.</li>";
+    } else {
+        description += "<li>Less active and prefers a relaxed home environment with fewer physical activities.</li>";
+    }
+
+    if (answers[0] === 1 || answers[0] === 2) {
+        description += "<li>Can handle interaction with children of various ages, from toddlers to middle schoolers.</li>";
+    } else {
+        description += "<li>Best in households without young children or with older kids only.</li>";
+    }
+
+    if (answers[1] === 1) {
+        description += "<li>Ideal for homes with other dogs or pets, as they can socialize well with other animals.</li>";
+    } else if (answers[1] === 2) {
+        description += "<li>Good with cats and other smaller animals in the home.</li>";
+    } else {
+        description += "<li>Prefers to be the only pet in the home.</li>";
+    }
+
+    description += "</ul>"; // End the unordered list
+    return description;
+}
+
+// Handle Restart button click
+document.getElementById("restartButton").addEventListener("click", function() {
+    location.reload(); // Reload the page to restart the quiz
+});
