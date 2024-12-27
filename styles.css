@@ -1,69 +1,106 @@
-/* styles.css */
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    background-color: #E9E6E2;  /* Light Gray background */
+    color: #333;  /* Dark text for readability */
     margin: 0;
     padding: 0;
-  }
-  
-  #appContainer {
-    width: 90%;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', sans-serif; /* Modern, sans-serif fonts */
+    color: #BE4D00; /* Orange color for headings */
+    margin-bottom: 20px;
+}
+
+p, label {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333; /* Dark gray text for readability */
+    margin-bottom: 15px;
+}
+
+/* Form Styles */
+form {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #4CAF50;
-  }
-  
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-  }
-  
-  select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  button {
-    display: block;
+    background-color: #FFFFFF; /* White background for form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Button Styles */
+button {
+    background-color: #BE4D00; /* Accent orange background */
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #9E3F00; /* Darker shade of orange on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Form Inputs and Textarea */
+input[type="text"], input[type="email"], input[type="number"], textarea {
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  #result {
-    background-color: #e8f5e9;
-    padding: 20px;
+    margin: 10px 0;
     border-radius: 8px;
-    margin-top: 30px;
+    border: 1px solid #ddd; /* Light border */
+    font-size: 1rem;
+    color: #333;
+    background-color: #FFFFFF; /* White background */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, textarea:focus {
+    border-color: #BE4D00; /* Orange border on focus */
+    outline: none;
+}
+
+/* Questionnaire Section */
+.questionnaire {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFFFFF; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.questionnaire h2 {
+    color: #4A7729; /* Green color for the questionnaire heading */
     text-align: center;
-  }
-  
-  #petDescription {
-    font-size: 18px;
-    color: #4CAF50;
-  }
-  
+}
+
+.questionnaire p {
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
