@@ -150,5 +150,4 @@ function restartQuiz() {
   currentQuestion = 0;
   answers = [];
   document.getElementById('resultsPage').classList.add('hidden');
-  document.getElementById('landingPage').classList.remove('hidden');
-}
+  document.getElementById('
