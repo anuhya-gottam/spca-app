@@ -1,76 +1,61 @@
-/* Basic Styles */
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #E9E6E2;
   margin: 0;
   padding: 0;
-  background-color: #E9E6E2;
-  color: #333;
   text-align: center;
+  color: #4A7729;
 }
 
 h1, h2 {
   color: #4A7729;
 }
 
-#landingPage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 button {
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #BE4D00;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
   border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #4A7729;
+  background-color: #FF7F32;
+}
+
+button.selected {
+  background-color: #FF7F32;
 }
 
 button:disabled {
-  background-color: #ddd;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#landingPage, #questionPage, #resultsPage {
+  display: block;
+  margin: 20px;
 }
 
 .hidden {
   display: none;
 }
 
-#questionPage {
-  display: block;
-  padding: 20px;
-}
-
-#answerButtons button {
-  margin: 10px;
-  background-color: #E9E6E2;
-  color: #4A7729;
-  border-radius: 20px;
-  padding: 10px 20px;
-  width: 60%;
-}
-
-#answerButtons button.selected {
-  background-color: #BE4D00;
-}
-
 .navigation {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  padding: 0 10%;
 }
 
-#resultsPage {
-  padding: 20px;
-  margin-top: 50px;
+#backButton {
+  background-color: #777;
+}
+
+#nextButton {
+  background-color: #4A7729;
 }
 
 ul {
@@ -78,11 +63,26 @@ ul {
   padding: 0;
 }
 
-ul li {
-  font-size: 18px;
-  margin: 10px 0;
+#restartButton {
+  background-color: #BE4D00;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-#restartButton {
-  margin-top: 20px;
+#restartButton:hover {
+  background-color: #FF7F32;
+}
+
+/* Adjust the spacing for the landing page */
+#landingPage h1 {
+  margin-bottom: 10px; /* Reduces space between title and subtitle */
+}
+
+#landingPage p {
+  margin-top: 0; /* Removes extra space above the subtitle */
+  margin-bottom: 20px; /* Adds a little spacing below the subtitle */
 }
