@@ -3,7 +3,7 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent the form from submitting and refreshing the page
   
     // Get the values from the form
-    const petType = document.getElementById('petType').value;
+    const houseHold = document.getElementById('houseHold').value;
     const timeAvailability = document.getElementById('timeAvailability').value;
     const children = document.getElementById('children').value;
     const activityLevel = document.getElementById('activityLevel').value;
