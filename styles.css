@@ -142,6 +142,14 @@ button#nextButton:disabled {
     margin-bottom: 20px;
 }
 
+#resultsPage ul {
+    list-style-type: disc; /* Display bullet points */
+    padding-left: 20px; /* Indent list items */
+    text-align: left; /* Align text to the left */
+    font-size: 1.1em; /* Slightly larger text for readability */
+    color: #333; /* Darker text for clarity */
+}
+
 #restartButton {
     background-color: #4A7729; /* Green */
     color: white;
