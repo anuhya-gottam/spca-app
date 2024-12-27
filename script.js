@@ -4,9 +4,10 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
   
     // Get the values from the form
     const houseHold = document.getElementById('houseHold').value;
-    const timeAvailability = document.getElementById('timeAvailability').value;
-    const children = document.getElementById('children').value;
-    const activityLevel = document.getElementById('activityLevel').value;
+    const otherAnimals = document.getElementById('otherAnimals').value;
+    const dogsBefore = document.getElementById('dogsBefore').value;
+    const sizeDog = document.getElementById('sizeDog').value;
+    const ageDog = document.getElementById('ageDog').value;
   
     // Generate a pet description based on the answers
     let description = '';
