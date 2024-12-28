@@ -19,12 +19,8 @@ body {
     max-width: 500px;
 }
 
-h1 {
+h1, h2 {
     color: #000000; /* Black */
-}
-
-h2 {
-    color: #696158;
 }
 
 button {
@@ -70,7 +66,7 @@ button {
 #backButton {
     width: 48%;
     margin-top: 20px;
-    background-color: #83786F;
+    background-color: #4A7729;
     color: white;
 }
 
