@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pet Match</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- Landing Page -->
   <div id="landingPage">
     <h1>Welcome to Pet Match</h1>
@@ -14,25 +15,21 @@
     <button id="startButton">Start</button>
   </div>
 
-  <!-- Question Pages -->
-  <div id="questionPage" class="hidden">
-    <div id="questionContainer">
-      <h2 id="questionText">Question will appear here</h2>
-      <div id="answerButtons"></div>
-    </div>
-    <div class="navigation">
-      <button id="backButton" class="hidden">Back</button>
-      <button id="nextButton">Next</button>
-    </div>
+  <!-- Question Page -->
+  <div id="questionPage" style="display: none;">
+    <h2 id="questionText"></h2>
+    <div id="answerButtons"></div>
+    <button id="backButton" style="display: none;">Back</button> <!-- Initially hidden -->
+    <button id="nextButton" disabled>Next</button> <!-- Initially hidden -->
   </div>
 
   <!-- Results Page -->
-  <div id="resultsPage" class="hidden">
+  <div id="resultsPage" style="display: none;">
     <h2>Your Perfect Pet</h2>
-    <ul id="petDescription"></ul>
-    <button id="restartButton">Restart</button>
+    <p id="petDescription"></p>
   </div>
 
-  <script src="script.js"></script> <!-- Linking to the JavaScript file -->
+  <script src="script.js"></script>
+
 </body>
 </html>
