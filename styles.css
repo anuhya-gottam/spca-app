@@ -1,6 +1,6 @@
 /* General styling */
 body {
-    font-family: 'Arial', sans-serif; /* Matches the simple sans-serif style */
+    font-family: 'Arial', sans-serif; /* Simple sans-serif font */
     background-color: #E9E6E2; /* Light gray background */
     color: #333; /* Dark text for readability */
     margin: 0;
@@ -12,82 +12,66 @@ body {
     flex-direction: column;
 }
 
-#appContainer {
-    background-color: #FFFFFF; /* White background for the form container */
-    padding: 40px 50px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
-    width: 100%;
-    max-width: 500px; /* Keeps the form container size reasonable */
+.page {
     text-align: center;
-}
-
-/* Title styling */
-h1 {
-    color: #4A7729; /* Dark green for the title */
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-/* Form label styling */
-label {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px;
-    display: block;
-    text-align: left;
-}
-
-/* Dropdown select styling */
-select {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #D1D1D1; /* Light gray border */
-    border-radius: 4px;
-    margin-bottom: 20px; /* Spacing between fields */
-    background-color: #F9F9F9; /* Light background for dropdown */
+    max-width: 500px;
 }
 
-select:focus {
-    outline: none;
-    border-color: #BE4D00; /* Orange border when focused */
+h1, h2 {
+    color: #4A7729; /* Dark green */
 }
 
-/* Button styling */
 button {
-    background-color: #BE4D00; /* Orange background */
-    color: #FFF; /* White text */
+    background-color: #BE4D00; /* Orange */
+    color: white;
     padding: 12px 20px;
     font-size: 18px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px; /* Rounded corners */
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 button:hover {
-    background-color: #9C3B00; /* Slightly darker orange on hover */
+    background-color: #9C3B00; /* Darker orange on hover */
 }
 
-/* Result section styling */
-#result {
-    background-color: #FFF;
+button.selected {
+    background-color: #FF7F32; /* Orange when selected */
+}
+
+button:disabled {
+    background-color: #D1D1D1; /* Light grey when disabled */
+    cursor: not-allowed;
+}
+
+#answers {
+    margin-top: 20px;
+}
+
+button {
+    width: 48%;
+    display: inline-block;
+}
+
+#nextButton, #backButton {
+    width: 48%;
+    margin-top: 20px;
+}
+
+/* Result page styling */
+#resultsPage {
+    background-color: #fff;
     padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     display: none;
 }
 
-#petDescription {
+#resultDescription {
     font-size: 18px;
-    line-height: 1.6;
     color: #333;
-}
-
-/* Spacing between form and result */
-#quizForm {
-    margin-bottom: 30px;
 }
