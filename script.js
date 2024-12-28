@@ -1,155 +1,140 @@
-// Data for the questions and answers
+// Variables for the pages and buttons
+const startButton = document.getElementById('startButton');
+const backButton = document.getElementById('backButton');
+const nextButton = document.getElementById('nextButton');
+const landingPage = document.getElementById('landingPage');
+const questionPage = document.getElementById('questionPage');
+const resultsPage = document.getElementById('resultsPage');
+const questionText = document.getElementById('questionText');
+const answerButtons = document.getElementById('answerButtons');
+const petDescription = document.getElementById('petDescription');
+
+// Variables to store user answers
+let answers = {
+  houseHold: '',
+  otherAnimals: '',
+  dogBefore: '',
+  sizeDog: '',
+  ageDog: '',
+  lifeStyle: '',
+  hoursAlone: ''
+};
+
+// Array to hold the questions and answers
 const questions = [
-  {
-    question: "Are there any kids in the home?",
-    options: ["No kids", "Baby, toddler, and older", "Early elementary and older", "Late elementary and older", "Middle school and older", "High school and older"],
-    key: "houseHold"
-  },
-  {
-    question: "Are there any other animals in the home?",
-    options: ["None", "Dog(s)", "Cat(s)", "Other small animals"],
-    key: "otherAnimals"
-  },
-  {
-    question: "Have you had a dog before?",
-    options: ["No", "Yes, small dog(s)", "Yes, medium dog(s)", "Yes, large dog(s)"],
-    key: "dogBefore"
-  },
-  {
-    question: "What size dog are you looking for?",
-    options: ["Small (up to 20 pounds)", "Medium (20-40 pounds)", "Large (more than 40 pounds)"],
-    key: "sizeDog"
-  },
-  {
-    question: "What age dog are you looking for?",
-    options: ["Puppy", "Young adult (6 months to 2 years)", "Adult (2 years to 7 years)", "Senior (more than 7 years)"],
-    key: "ageDog"
-  },
-  {
-    question: "What kind of lifestyle do you live?",
-    options: ["Very active", "Somewhat active", "Less active"],
-    key: "lifeStyle"
-  },
-  {
-    question: "How many hours a day will the animal be alone?",
-    options: ["Less than 2 hours", "2-8 hours", "More than 8 hours"],
-    key: "hoursAlone"
-  }
+  { question: 'Are there any kids in the home?', name: 'houseHold', options: ['No kids', 'Baby, toddler, and older', 'Early elementary and older', 'Late elementary and older', 'Middle school and older', 'High school and older'] },
+  { question: 'Are there any other animals in the home?', name: 'otherAnimals', options: ['None', 'Dog(s)', 'Cat(s)', 'Other small animals'] },
+  { question: 'Have you had a dog before?', name: 'dogBefore', options: ['No', 'Yes, small dog(s)', 'Yes, medium dog(s)', 'Yes, large dog(s)'] },
+  { question: 'What size dog are you looking for?', name: 'sizeDog', options: ['Small (up to 20 pounds)', 'Medium (20-40 pounds)', 'Large (more than 40 pounds)'] },
+  { question: 'What age dog are you looking for?', name: 'ageDog', options: ['Puppy', 'Young adult (6 months to 2 years)', 'Adult (2 years to 7 years)', 'Senior (more than 7 years)'] },
+  { question: 'What kind of lifestyle do you live?', name: 'lifeStyle', options: ['Very active (regular hiking/running)', 'Somewhat active (occasional hikes/runs)', 'Less active (rarely hike/run)'] },
+  { question: 'How many hours a day will the animal be alone?', name: 'hoursAlone', options: ['Less than 2 hours', '2-8 hours', 'More than 8 hours'] }
 ];
 
-let currentQuestion = 0;
-let answers = [];
+let currentQuestionIndex = 0; // Track the current question index
 
-// Show the landing page when the app starts
-document.getElementById('startButton').addEventListener('click', startQuiz);
+startButton.addEventListener('click', function() {
+  showQuestionPage(); // Show the question page
+});
 
-// Show the next question when "Next" is clicked
-document.getElementById('nextButton').addEventListener('click', nextQuestion);
-
-// Show the previous question when "Back" is clicked
-document.getElementById('backButton').addEventListener('click', previousQuestion);
-
-// Restart the quiz when "Restart" is clicked
-document.getElementById('restartButton').addEventListener('click', restartQuiz);
-
-function startQuiz() {
-  document.getElementById('landingPage').classList.add('hidden');
-  document.getElementById('questionPage').classList.remove('hidden');
-  showQuestion();
+// Function to show the question page
+function showQuestionPage() {
+  landingPage.style.display = 'none'; // Hide the landing page
+  questionPage.style.display = 'block'; // Show the question page
+  showQuestion(); // Display the first question
+  backButton.style.display = 'none'; // Hide back button on the first question
+  nextButton.style.display = 'inline-block'; // Show next button
+  nextButton.disabled = true; // Disable next button initially
 }
 
+// Function to show the question text and answer options
 function showQuestion() {
-  const questionData = questions[currentQuestion];
-  document.getElementById('questionText').textContent = questionData.question;
-
-  const answerButtons = document.getElementById('answerButtons');
-  answerButtons.innerHTML = ''; // Clear previous buttons
-
-  questionData.options.forEach((option, index) => {
+  const question = questions[currentQuestionIndex];
+  questionText.textContent = question.question;
+  
+  answerButtons.innerHTML = ''; // Clear any previous buttons
+  question.options.forEach(option => {
     const button = document.createElement('button');
     button.textContent = option;
-    button.addEventListener('click', () => selectAnswer(index));
+    button.onclick = function() {
+      selectAnswer(button, option);
+    };
     answerButtons.appendChild(button);
   });
-
-  // Show/Hide navigation buttons
-  document.getElementById('backButton').classList.toggle('hidden', currentQuestion === 0);
-  document.getElementById('nextButton').disabled = true;
 }
 
-function selectAnswer(index) {
-  const questionData = questions[currentQuestion];
-  answers[currentQuestion] = index;
-
-  // Highlight the selected option
-  const buttons = document.getElementById('answerButtons').children;
-  Array.from(buttons).forEach((button, i) => {
-    if (i === index) {
-      button.classList.add('selected');
-    } else {
-      button.classList.remove('selected');
-    }
-  });
-
-  // Enable "Next" button
-  document.getElementById('nextButton').disabled = false;
+// Handle answer selection
+function selectAnswer(button, answer) {
+  answers[questions[currentQuestionIndex].name] = answer; // Store the answer
+  button.classList.add('selected'); // Change the button color to orange
+  nextButton.disabled = false; // Enable the Next button
 }
 
-function nextQuestion() {
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
+// Event listener for the "Next" button
+nextButton.addEventListener('click', function() {
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++; // Go to the next question
     showQuestion();
   } else {
-    showResults();
+    showResultsPage(); // Show results page after all questions are answered
   }
+});
+
+// Function to show the results page
+function showResultsPage() {
+  questionPage.style.display = 'none'; // Hide the question page
+  resultsPage.style.display = 'block'; // Show the results page
+  backButton.style.display = 'none'; // Hide back button on results page
+  nextButton.style.display = 'none'; // Hide next button on results page
+  
+  // Display a customized result based on answers
+  generateResults();
 }
 
-function previousQuestion() {
-  if (currentQuestion > 0) {
-    currentQuestion--;
-    showQuestion();
-  }
-}
+// Function to generate the results based on user answers
+function generateResults() {
+  let description = "Based on your answers, we recommend a ";
 
-function showResults() {
-  document.getElementById('questionPage').classList.add('hidden');
-  document.getElementById('resultsPage').classList.remove('hidden');
-
-  const petDescription = generatePetDescription();
-  document.getElementById('petDescription').innerHTML = petDescription;
-}
-
-function generatePetDescription() {
-  let description = "<ul>";
-
-  if (answers[5] === 0) {
-    description += "<li>Highly energetic, enjoys outdoor activities like hiking or running, and is a good fit for active lifestyles.</li>";
-  } else if (answers[5] === 1) {
-    description += "<li>Moderately active and enjoys occasional walks and playtime.</li>";
+  // Combine answers to generate a recommendation description
+  if (answers.lifeStyle === 'Very active (regular hiking/running)') {
+    description += "high-energy dog";
+  } else if (answers.lifeStyle === 'Somewhat active (occasional hikes/runs)') {
+    description += "moderately active dog";
   } else {
-    description += "<li>Less active and prefers a relaxed home environment with fewer physical activities.</li>";
+    description += "less active dog";
   }
 
-  if (answers[0] === 1 || answers[0] === 2) {
-    description += "<li>Can handle interaction with children of various ages.</li>";
+  description += " who is ";
+
+  // Check size preference
+  if (answers.sizeDog === 'Small (up to 20 pounds)') {
+    description += "small ";
+  } else if (answers.sizeDog === 'Medium (20-40 pounds)') {
+    description += "medium-sized ";
   } else {
-    description += "<li>Best suited for homes with older kids or no children.</li>";
+    description += "large ";
   }
 
-  if (answers[1] === 1) {
-    description += "<li>Good with other dogs and pets.</li>";
+  description += "and ";
+
+  // Check age preference
+  if (answers.ageDog === 'Puppy') {
+    description += "a young dog (puppy)";
+  } else if (answers.ageDog === 'Young adult (6 months to 2 years)') {
+    description += "a young adult dog";
+  } else if (answers.ageDog === 'Adult (2 years to 7 years)') {
+    description += "an adult dog";
   } else {
-    description += "<li>Prefers a home without other pets.</li>";
+    description += "a senior dog";
   }
 
-  description += "</ul>";
+  // Add additional preferences based on answers
+  if (answers.houseHold === 'Early elementary and older') {
+    description += " who is comfortable around children in early elementary school and older.";
+  } else {
+    description += " who can adapt to other family situations.";
+  }
 
-  return description;
-}
-
-function restartQuiz() {
-  currentQuestion = 0;
-  answers = [];
-  document.getElementById('resultsPage').classList.add('hidden');
-  document.getElementById('landingPage').classList.remove('hidden');
+  // Display final result description
+  petDescription.textContent = description;
 }
