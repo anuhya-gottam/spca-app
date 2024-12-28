@@ -58,7 +58,13 @@ button {
     display: inline-block;
 }
 
-#backButton, #nextButton {
+#backButton {
+    width: 48%;
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    color: #83786F;
+}
+#nextButton {
     width: 48%;
     margin-top: 20px;
     background-color: #4A7729;
@@ -67,14 +73,15 @@ button {
 
 /* Result page styling */
 #resultsPage {
-    background-color: #fff;
+    background-color: #4A7729;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 12px;
     display: none;
 }
 
 #resultDescription {
-    font-size: 18px;
-    color: #333;
+    font-size: 20px;
+    color: #white;
+    text-align: left;
 }
