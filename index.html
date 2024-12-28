@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Match</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Match</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 <body>
 
-  <div id="landingPage">
-    <div id="appContainer">
-      <h1>Welcome to Pet Match</h1>
-      <p>Answer a few questions, and we'll help you find your perfect pet match!</p> <!-- Short sentence under the welcome text -->
-      <button id="startButton">Start</button> <!-- Start Button -->
+    <!-- Landing Page -->
+    <div id="landingPage" class="page">
+        <h1>Welcome to SPCA's Pet Matcher</h1>
+        <h2>Answer a few questions, and we'll help you find your perfect pet!</h2>
+        <button id="startButton">Start</button>
     </div>
-  </div>
 
-  <div id="questionPage" style="display: none;">
-    <div id="appContainer">
-      <h2 id="questionText"></h2> <!-- The question will appear here -->
-      <div id="answers"></div> <!-- Buttons for the answer options -->
-      <div id="navigationButtons">
-        <button id="backButton" style="display: none;">Back</button> <!-- Back Button -->
-        <button id="nextButton">Next</button> <!-- Next Button -->
-      </div>
+    <!-- Question Page -->
+    <div id="questionPage" class="page" style="display: none;">
+        <h2 id="questionText">Are there kids in the home?</h2>
+        <div id="answers">
+            <!-- Answers will be inserted here dynamically -->
+        </div>
+        <button id="backButton" class="btn" style="display: none;">Back</button>
+        <button id="nextButton" class="btn" style="display: none;">Next</button>
     </div>
-  </div>
 
-  <div id="resultsPage" style="display: none;">
-    <div id="appContainer">
-      <h2>Thank you for completing the quiz!</h2>
-      <p id="resultDescription"></p> <!-- Result description will be here -->
+    <!-- Results Page -->
+    <div id="resultsPage" class="page" style="display: none;">
+        <h2>Your Pet Match</h2>
+        <p id="resultDescription"></p>
     </div>
-  </div>
 
-  <script src="script.js"></script> <!-- Linking to the JavaScript file -->
+    <script src="script.js"></script> <!-- Link to external JS -->
 </body>
 </html>
