@@ -1,8 +1,8 @@
 /* General styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #E9E6E2;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* Simple sans-serif font */
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Dark text for readability */
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,112 +10,91 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    font-size: 24px;
 }
 
-#appContainer {
-    background-color: #FFFFFF;
-    padding: 40px 50px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.page {
+    text-align: center;
     width: 100%;
     max-width: 500px;
-    text-align: center;
 }
 
-/* Title styling */
 h1 {
-    color: #4A7729;
-    font-size: 32px;
-    margin-bottom: 10px;
+    color: #000000; /* Black */
 }
 
 h2 {
-    color: #4A7729;
-    font-size: 24px;
-    margin-bottom: 20px;
+    color: #696158;
 }
 
-p {
-    color: #333;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Form label styling */
-label {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px;
-    display: block;
-    text-align: left;
-}
-
-/* Dropdown select styling */
-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #D1D1D1;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    background-color: #F9F9F9;
-}
-
-select:focus {
-    outline: none;
-    border-color: #BE4D00;
-}
-
-/* Button styling */
 button {
-    background-color: #BE4D00;
-    color: #FFF;
+    display: block;
+    background-color: #E9E6E2; /* Grey */
+    color: black;
     padding: 12px 20px;
     font-size: 18px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px; /* Rounded corners */
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
-    margin: 10px 0; /* Spacing between buttons */
+    margin-top: 20px;
+    margin-side: 20px;
 }
 
 button:hover {
-    background-color: #9C3B00;
+    background-color: #83786F; /* Darker grey on hover */
+    color: white;
 }
 
-/* Button alignment */
-#navigationButtons {
-    display: flex;
-    justify-content: space-between; /* Position Back and Next buttons on the same row */
+button.selected {
+    background-color: #BE4D00; /* Orange when selected */
+    color: white;
+}
+
+button:disabled {
+    background-color: #D1D1D1; /* Light grey when disabled */
+    cursor: not-allowed;
+}
+
+#answers {
     margin-top: 20px;
+    
 }
 
-#navigationButtons button {
-    width: 48%; /* Make buttons smaller and put space between them */
+button {
+    width: 48%;
+    display: inline-block;
 }
 
-#answers button {
-    margin: 5px; /* Add space between answer buttons */
+#backButton {
+    width: 48%;
+    margin-top: 20px;
+    background-color: #83786F;
+    color: white;
 }
 
-/* Result section styling */
-#result {
-    background-color: #FFF;
+#nextButton {
+    width: 48%;
+    margin-top: 20px;
+    background-color: #4A7729;
+    color: white;
+}
+
+/* Result page styling */
+#resultsPage {
+    background-color: #fff;
     padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     display: none;
+    background-color: #4A7729;
+    color: white;
+    font-size: 24px;
 }
 
-#petDescription {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Spacing between form and result */
-#quizForm {
-    margin-bottom: 30px;
+#resultDescription {
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: left;
 }
