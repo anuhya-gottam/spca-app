@@ -1,15 +1,19 @@
 // Store answers for the user
 let answers = [];
 
-// Questions and answers
+// Questions and options
 const questions = [
     {
         question: "Are there kids in the home?",
-        options: ["No kids", "Baby, toddler, and older", "Early elementary and older", "Middle school and older", "High school and older"]
+        options: ["No kids", "Baby, toddler, and older", "Early elementary and older", "Late elementary and older", "Middle school and older", "High school and older"]
     },
     {
         question: "Are there other animals in the home?",
         options: ["None", "Dog(s)", "Cat(s)", "Other small animals"]
+    },
+    {
+        question: "Have you had a dog before?",
+        options: ["No", "Yes, small dog(s)", "Yes, medium dog(s)", "Yes, large dog(s)"]
     },
     {
         question: "What size dog are you looking for?",
@@ -18,6 +22,14 @@ const questions = [
     {
         question: "What age dog are you looking for?",
         options: ["Puppy", "Young adult (6 months to 2 years)", "Adult (2 years to 7 years)", "Senior (more than 7 years)"]
+    },
+    {
+        question: "What kind of lifestyle do you live?",
+        options: ["Very active (regular hiking/running, several walks per day)", "Somewhat active (occasional hikes/runs, at least one walk per day)", "Less active (rarely or never hike/run, one walk per day)"]
+    },
+    {
+        question: "How many hours a day will the animal be alone in the home?",
+        options: ["Less than 2 hours", "2-8 hours", "More than 8 hours"]
     }
 ];
 
@@ -94,56 +106,93 @@ function showResults() {
     const resultDescription = document.getElementById("resultDescription");
 
     // Generate the result description based on answers
-    const lifestyle = answers[0]; // Question 1: Kids in the home
+    const lifestyle = answers[5]; // Question 6: Lifestyle
+    const hoursAlone = answers[6]; // Question 7: Hours Alone
+    const kids = answers[0]; // Question 1: Kids in the home
     const otherAnimals = answers[1]; // Question 2: Other animals in the home
-    const dogSize = answers[2]; // Question 3: Desired dog size
-    const dogAge = answers[3]; // Question 4: Desired dog age
+    const dogExperience = answers[2]; // Question 3: Experience with dogs
+    const dogSize = answers[3]; // Question 4: Desired dog size
+    const dogAge = answers[4]; // Question 5: Desired dog age
 
-    let result = "Based on your answers, we recommend the following: ";
+    let result = "Based on your answers, we recommend the following:<br><ul>";
 
     // Match the lifestyle (activity level)
-    if (lifestyle === "No kids") {
-        result += "A calm, non-reactive dog that is comfortable with a quieter home. ";
-    } else if (lifestyle === "Baby, toddler, and older") {
-        result += "A patient and tolerant dog, likely medium to small in size, that gets along well with young children. ";
-    } else if (lifestyle === "Early elementary and older") {
-        result += "A moderate-energy dog that can handle the excitement of younger children. ";
-    } else if (lifestyle === "Middle school and older") {
-        result += "An energetic dog that can match the enthusiasm of school-age kids. ";
+    if (lifestyle === "Very active (regular hiking/running, several walks per day)") {
+        result += "<li>An energetic dog that loves outdoor activities like hiking or running.</li>";
+    } else if (lifestyle === "Somewhat active (occasional hikes/runs, at least one walk per day)") {
+        result += "<li>A moderately active dog that enjoys daily walks and occasional adventures.</li>";
     } else {
-        result += "A more independent and calm dog that is well-suited for older teens. ";
+        result += "<li>A more laid-back dog that enjoys short walks and relaxed activities.</li>";
     }
 
-    // Consider other animals in the home
+    // Match the hours alone
+    if (hoursAlone === "Less than 2 hours") {
+        result += "<li>This dog should enjoy being around people and be adaptable to less alone time.</li>";
+    } else if (hoursAlone === "2-8 hours") {
+        result += "<li>This dog should be independent and comfortable with moderate alone time.</li>";
+    } else {
+        result += "<li>This dog should be more independent and capable of being alone for extended periods.</li>";
+    }
+
+    // Match the kids in the home
+    if (kids === "No kids") {
+        result += "<li>A calm, quiet dog that thrives in a kid-free environment.</li>";
+    } else if (kids === "Baby, toddler, and older") {
+        result += "<li>A patient dog, preferably small to medium in size, that gets along with young children.</li>";
+    } else if (kids === "Early elementary and older") {
+        result += "<li>A dog with a moderate energy level that is playful but gentle with younger children.</li>";
+    } else if (kids === "Late elementary and older") {
+        result += "<li>A dog that matches the energy of older kids, enjoying active playtime together.</li>";
+    } else if (kids === "Middle school and older") {
+        result += "<li>A dog that can engage in active play, with a bit of independence as the kids get older.</li>";
+    } else {
+        result += "<li>A more independent dog that is comfortable with older teens.</li>";
+    }
+
+    // Match other animals in the home
     if (otherAnimals === "None") {
-        result += "This dog should be the only pet in the home. ";
+        result += "<li>This dog should be the only pet in the home.</li>";
     } else if (otherAnimals === "Dog(s)") {
-        result += "This dog should be good with other dogs, potentially requiring a dog introduction. ";
+        result += "<li>This dog should get along well with other dogs. A dog-friendly breed is preferred.</li>";
     } else if (otherAnimals === "Cat(s)") {
-        result += "This dog should be comfortable around cats and not show aggression. ";
+        result += "<li>This dog should be fine with cats, and possibly tolerant of other pets as well.</li>";
     } else {
-        result += "This dog should get along well with other small animals in the home. ";
+        result += "<li>This dog should get along well with small animals.</li>";
     }
 
-    // Size of dog preference
+    // Match previous dog experience
+    if (dogExperience === "No") {
+        result += "<li>A dog that is easy to train and friendly with beginners is ideal.</li>";
+    } else if (dogExperience === "Yes, small dog(s)") {
+        result += "<li>A medium to small-sized dog with a friendly demeanor would be perfect.</li>";
+    } else if (dogExperience === "Yes, medium dog(s)") {
+        result += "<li>A medium-sized dog that is friendly and manageable would suit your experience.</li>";
+    } else {
+        result += "<li>A large breed with a gentle temperament and manageable training needs.</li>";
+    }
+
+    // Match dog size preference
     if (dogSize === "Small (up to 20 pounds)") {
-        result += "You may prefer a smaller breed, which is often easier to manage in apartments or smaller spaces. ";
+        result += "<li>A small-sized dog, suitable for apartments or smaller spaces.</li>";
     } else if (dogSize === "Medium (20-40 pounds)") {
-        result += "A medium-sized dog will be a good fit for various living situations, offering a nice balance of energy and size. ";
+        result += "<li>A medium-sized dog that is versatile and fits well in most homes.</li>";
     } else {
-        result += "A larger breed may suit your home if you have space and prefer a more active dog. ";
+        result += "<li>A large breed dog that may need more space but is great for active owners.</li>";
     }
 
-    // Age preference
+    // Match dog age preference
     if (dogAge === "Puppy") {
-        result += "A puppy will require more training and attention, but will grow to be your long-term companion. ";
+        result += "<li>A puppy that requires attention, training, and will grow with your family.</li>";
     } else if (dogAge === "Young adult (6 months to 2 years)") {
-        result += "A young adult dog will be playful but more manageable, with some prior training already in place. ";
+        result += "<li>A young adult dog, still playful but requiring less training than a puppy.</li>";
     } else if (dogAge === "Adult (2 years to 7 years)") {
-        result += "An adult dog is likely to be calmer and well-trained, making it easier to integrate into your home. ";
+        result += "<li>An adult dog that is well-behaved, with a good balance of energy and calmness.</li>";
     } else {
-        result += "A senior dog will require less exercise and is often more laid-back, making it a great companion for a quieter home. ";
+        result += "<li>A senior dog that enjoys a relaxed lifestyle and requires minimal training.</li>";
     }
 
-    resultDescription.innerText = result;
+    result += "</ul>";
+
+    // Display the result
+    resultDescription.innerHTML = result;
 }
