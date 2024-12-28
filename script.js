@@ -21,7 +21,7 @@ const questions = [
     },
     {
         question: "What age dog are you looking for?",
-        options: ["Puppy", "Young adult (6 months to 2 years)", "Adult (2 years to 7 years)", "Senior (more than 7 years)"]
+        options: ["Puppy (2 months to 6 months", "Young adult (6 months to 2 years)", "Adult (2 years to 7 years)", "Senior (more than 7 years)"]
     },
     {
         question: "What kind of lifestyle do you live?",
