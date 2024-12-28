@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    font-size: 36px;
+    font-size: 24px;
 }
 
 .page {
@@ -82,11 +82,11 @@ button {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 12px;
     display: none;
     background-color: #4A7729;
     color: white;
-    font-size: 36px;
+    font-size: 24px;
 }
 
 #resultDescription {
