@@ -25,7 +25,7 @@ h1, h2 {
 button {
     display: block;
     background-color: #E9E6E2; /* Grey */
-    color: white;
+    color: #696158;
     padding: 12px 20px;
     font-size: 18px;
     border: none;
@@ -33,15 +33,17 @@ button {
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #83786F; /* Darker grey on hover */
+    color: white;
 }
 
 button.selected {
     background-color: #BE4D00; /* Orange when selected */
+    color: white;
 }
 
 button:disabled {
@@ -50,7 +52,7 @@ button:disabled {
 }
 
 #answers {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 button {
