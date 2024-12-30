@@ -196,5 +196,3 @@ function showResults() {
     // Display the result
     resultDescription.innerHTML = result;
 }
-
-
