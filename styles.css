@@ -98,62 +98,74 @@ button {
     text-align: left;
 }
 
-/* Progress bar container */
+/* General layout styling */
 #progressBarContainer {
-  width: 100%; /* This will match the width of the question container */
-  background-color: #E9E6E2; /* Light gray background for the bar */
+  width: 100%; /* Make this 100% of the question container's width */
+  background-color: #E9E6E2; /* Light gray background */
   border-radius: 10px;
-  position: relative;
-  height: 20px;
+  height: 10px;
   margin-bottom: 20px;
+  display: none; /* Initially hidden, only shown on question pages */
 }
 
-/* The progress bar itself */
 #progressBar {
-  background-color: #4A7729; /* Green color for progress */
+  background-color: #4A7729; /* Green color */
   height: 100%;
-  width: 0%; /* This will be updated dynamically */
+  width: 0%; /* Will be updated dynamically */
   border-radius: 10px;
-  transition: width 0.5s ease;
+  transition: width 0.3s ease; /* Smooth transition for the width */
 }
 
-/* Checkpoints and numbers */
-#checkpoints {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+#questionContainer {
+  text-align: center;
 }
 
-.checkpoint {
-  background-color: #FFFFFF; /* White color for checkpoints */
-  color: #4A7729; /* Green for default */
-  border: 2px solid #4A7729; /* Green border */
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#questionHeader {
+  font-size: 24px;
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+  padding-bottom: 10px;
 }
 
-/* When the checkpoint is active (currently being answered) */
-.checkpoint.active {
-  background-color: #BE4D00; /* Orange color when active */
-  color: white;
+#questionHeader.current {
+  background-color: #ffffff; /* White background for current question */
+  color: #4A7729; /* Green text for the current question */
+  border-radius: 5px;
 }
 
-/* When the checkpoint is completed */
-.checkpoint.completed {
-  background-color: #4A7729; /* Green for completed */
-  color: white;
-}
-
-/* Hover effect for checkpoints */
-.checkpoint:hover {
+#answerButtons button {
+  background-color: #E9E6E2;
+  color: #333;
+  border: 2px solid #E9E6E2;
+  padding: 12px 20px;
+  margin: 10px 5px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#answerButtons button:hover {
+  background-color: #4A7729;
+  color: white;
+}
+
+button.hidden {
+  display: none; /* Hide the Back button when not needed */
+}
+
+/* For completed progress bar and checkpoint numbers */
+.checkpoint {
+  color: #4A7729; /* Green for normal state */
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.checkpoint.completed {
+  background-color: #4A7729;
+  color: white;
+}
+
+.checkpoint.active {
+  background-color: #BE4D00; /* Orange for active question */
+  color: white;
 }
