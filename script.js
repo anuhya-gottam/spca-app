@@ -197,20 +197,20 @@ function showResults() {
     resultDescription.innerHTML = result;
 }
 
+// Keep track of the current question
 let currentQuestion = 1;
 const totalQuestions = 7;
 
-// Update progress bar and highlight current question
+// Update progress bar and checkpoints
 function updateProgress() {
   const progressBar = document.getElementById("progressBar");
   const checkpoints = document.querySelectorAll(".checkpoint");
-  const questionHeader = document.getElementById("questionHeader");
-  
-  // Calculate the width of the progress bar as a percentage (based on number of questions)
+
+  // Calculate the width of the progress bar as a percentage
   const progressPercentage = (currentQuestion / totalQuestions) * 100;
   progressBar.style.width = progressPercentage + "%";
 
-  // Update checkpoints and current question style
+  // Update checkpoints
   checkpoints.forEach((checkpoint, index) => {
     if (index + 1 < currentQuestion) {
       checkpoint.classList.add("completed");
@@ -222,80 +222,23 @@ function updateProgress() {
       checkpoint.classList.remove("active", "completed");
     }
   });
-
-  // Highlight the current question in the header
-  const allQuestionHeaders = document.querySelectorAll(".question-header");
-  allQuestionHeaders.forEach(header => header.classList.remove("current"));
-  questionHeader.classList.add("current");
 }
 
-// Show the current question and hide others
-function showQuestion() {
-  // Display the progress bar only during question pages
-  document.getElementById("progressBarContainer").style.display = "block";
-  const questionText = questions[currentQuestion - 1]; // Get the current question
+// Call updateProgress initially
+updateProgress();
 
-  // Update question header
-  const questionHeader = document.getElementById("questionHeader");
-  questionHeader.textContent = questionText.question; // Set the question text
-
-  // Create answer buttons dynamically
-  const answerButtonsContainer = document.getElementById("answerButtons");
-  answerButtonsContainer.innerHTML = ''; // Clear previous buttons
-
-  questionText.answers.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.textContent = answer;
-    button.onclick = () => handleAnswer(index + 1);
-    answerButtonsContainer.appendChild(button);
-  });
-
-  // Update progress bar and checkpoint status
-  updateProgress();
-
-  // Toggle Next/Back buttons visibility
-  if (currentQuestion === 1) {
-    document.getElementById("backButton").style.display = "none"; // Hide Back on first question
-  } else {
-    document.getElementById("backButton").style.display = "block"; // Show Back on other questions
-  }
-}
-
-// Handle the Next button
+// Handle Next Button
 document.getElementById("nextButton").addEventListener("click", function() {
   if (currentQuestion < totalQuestions) {
     currentQuestion++;
-    showQuestion();
-  } else {
-    // Show the result page after all questions
-    document.getElementById("questionContainer").style.display = "none";
-    document.getElementById("resultContainer").style.display = "block";
+    updateProgress();
   }
 });
 
-// Handle the Back button
+// Handle Back Button
 document.getElementById("backButton").addEventListener("click", function() {
   if (currentQuestion > 1) {
     currentQuestion--;
-    showQuestion();
+    updateProgress();
   }
 });
-
-// Function to initialize the question flow
-function initQuiz() {
-  showQuestion();
-}
-
-// Sample questions structure
-const questions = [
-  { question: "Are there any kids in the home?", answers: ["No kids", "Baby, toddler, and older", "Early elementary and older", "Late elementary and older", "Middle school and older", "High school and older"] },
-  { question: "Are there any other animals in the home?", answers: ["None", "Dog(s)", "Cat(s)", "Other small animals"] },
-  { question: "Have you had a dog before?", answers: ["No", "Small dog(s)", "Medium dog(s)", "Large dog(s)"] },
-  { question: "What size dog are you looking for?", answers: ["Small (up to 20 pounds)", "Medium (20-40 pounds)", "Large (more than 40 pounds)"] },
-  { question: "What age dog are you looking for?", answers: ["Puppy", "Young adult (6 months to 2 years)", "Adult (2 years to 7 years)", "Senior (more than 7 years)"] },
-  { question: "What kind of lifestyle do you live?", answers: ["Very active (regular hiking/running)", "Somewhat active (occasional hikes)", "Less active (rarely or never hike/run)"] },
-  { question: "How many hours a day will the animal be alone in the home?", answers: ["Less than 2 hours", "2-8 hours", "More than 8 hours"] }
-];
-
-// Initialize the quiz on page load
-window.onload = initQuiz;
