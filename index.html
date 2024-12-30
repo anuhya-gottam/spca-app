@@ -25,23 +25,34 @@
         <button id="backButton" class="btn" style="display: none;">Back</button>
     </div>
 
-    <!-- Results Page -->
-    <div id="resultsPage" class="page" style="display: none;">
-        <h2>Your Pet Match</h2>
-        <p id="resultDescription"></p>
-    </div>
-   <!-- Progress bar container -->
-    <div id="progressBarContainer">
+    
+   <!-- Progress bar container (visible only on question pages) -->
+    <div id="progressBarContainer" class="hidden">
       <div id="progressBar"></div>
-      <div id="checkpoints">
-        <span class="checkpoint" id="checkpoint-1">1</span>
-        <span class="checkpoint" id="checkpoint-2">2</span>
-        <span class="checkpoint" id="checkpoint-3">3</span>
-        <span class="checkpoint" id="checkpoint-4">4</span>
-        <span class="checkpoint" id="checkpoint-5">5</span>
-        <span class="checkpoint" id="checkpoint-6">6</span>
-        <span class="checkpoint" id="checkpoint-7">7</span>
+    </div>
+    
+    <!-- Question form container -->
+    <div id="questionContainer">
+      <h2 id="questionHeader">Question 1</h2>
+      <!-- Question content goes here (e.g., select or buttons) -->
+      <div id="answerButtons">
+        <!-- Answer buttons will be dynamically inserted here -->
       </div>
+    
+      <!-- Back and Next buttons -->
+      <div class="button-container">
+        <button id="backButton" class="hidden">Back</button>
+        <button id="nextButton">Next</button>
+      </div>
+    </div>
+    
+    <!-- Results section (hidden initially) -->
+    <div id="resultContainer" class="hidden">
+      <!-- Result content goes here -->
+        <div id="resultsPage" class="page" style="display: none;">
+            <h2>Your Pet Match</h2>
+            <p id="resultDescription"></p>
+        </div>
     </div>
 
 
