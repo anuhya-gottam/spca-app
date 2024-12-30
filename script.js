@@ -197,48 +197,4 @@ function showResults() {
     resultDescription.innerHTML = result;
 }
 
-// Keep track of the current question
-let currentQuestion = 1;
-const totalQuestions = 7;
 
-// Update progress bar and checkpoints
-function updateProgress() {
-  const progressBar = document.getElementById("progressBar");
-  const checkpoints = document.querySelectorAll(".checkpoint");
-
-  // Calculate the width of the progress bar as a percentage
-  const progressPercentage = (currentQuestion / totalQuestions) * 100 + 2.38095%;
-  progressBar.style.width = progressPercentage + "%";
-
-  // Update checkpoints
-  checkpoints.forEach((checkpoint, index) => {
-    if (index + 1 < currentQuestion) {
-      checkpoint.classList.add("completed");
-      checkpoint.classList.remove("active");
-    } else if (index + 1 === currentQuestion) {
-      checkpoint.classList.add("active");
-      checkpoint.classList.remove("completed");
-    } else {
-      checkpoint.classList.remove("active", "completed");
-    }
-  });
-}
-
-// Call updateProgress initially
-updateProgress();
-
-// Handle Next Button
-document.getElementById("nextButton").addEventListener("click", function() {
-  if (currentQuestion < totalQuestions) {
-    currentQuestion++;
-    updateProgress();
-  }
-});
-
-// Handle Back Button
-document.getElementById("backButton").addEventListener("click", function() {
-  if (currentQuestion > 1) {
-    currentQuestion--;
-    updateProgress();
-  }
-});
