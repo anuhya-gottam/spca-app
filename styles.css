@@ -97,3 +97,61 @@ button {
     color: #ffffff;
     text-align: left;
 }
+
+/* Progress bar container */
+#progressBarContainer {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  position: relative;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+/* The progress bar itself */
+#progressBar {
+  background-color: #BE4D00; /* Orange color for the progress */
+  height: 100%;
+  width: 0%; /* This will be updated dynamically */
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Checkpoints and numbers */
+#checkpoints {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkpoint {
+  background-color: #fff;
+  color: #4A7729; /* Green color */
+  border: 2px solid #4A7729;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.checkpoint.active {
+  background-color: #BE4D00; /* Active checkpoint color */
+  color: white;
+}
+
+.checkpoint.completed {
+  background-color: #4A7729; /* Green for completed checkpoints */
+  color: white;
+}
+
+.checkpoint:hover {
+  cursor: pointer;
+}
+
