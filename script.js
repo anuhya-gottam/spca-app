@@ -207,7 +207,7 @@ function updateProgress() {
   const checkpoints = document.querySelectorAll(".checkpoint");
 
   // Calculate the width of the progress bar as a percentage
-  const progressPercentage = (currentQuestion / totalQuestions) * 100;
+  const progressPercentage = (currentQuestion / totalQuestions) * 100 + 2.38095%;
   progressBar.style.width = progressPercentage + "%";
 
   // Update checkpoints
